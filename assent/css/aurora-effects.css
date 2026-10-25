@@ -1,0 +1,241 @@
+/* ==========================================================================
+   MCX DIGITAL CAPITAL - AURORA & NEON EFFECTS (aurora-effects.css)
+   Architect: Matin (M.N.Y. 1304) | 100% Vanilla CSS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. AURORA BACKGROUND (پس‌زمینه شفق قطبی متحرک)
+   -------------------------------------------------------------------------- */
+.aurora-background-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.6;
+    filter: blur(90px);
+}
+
+.aurora-beam {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: auroraFloat 12s infinite alternate ease-in-out;
+}
+
+.aurora-beam-cyan {
+    top: -10%; left: -10%; width: 50vw; height: 50vw;
+    background: radial-gradient(circle, var(--mcx-neon-blue, #00C8FF) 0%, transparent 70%);
+    animation-delay: 0s;
+}
+
+.aurora-beam-magenta {
+    top: 20%; right: -20%; width: 60vw; height: 60vw;
+    background: radial-gradient(circle, var(--mcx-neon-purple, #6A00FF) 0%, transparent 70%);
+    animation-delay: -4s;
+}
+
+.aurora-beam-violet {
+    bottom: -30%; left: 20%; width: 55vw; height: 55vw;
+    background: radial-gradient(circle, #3B4BFF 0%, transparent 70%);
+    animation-delay: -8s;
+}
+
+.aurora-beam-emerald {
+    top: 40%; left: 40%; width: 40vw; height: 40vw;
+    background: radial-gradient(circle, var(--mcx-neon-emerald, #00FFA3) 0%, transparent 70%);
+    opacity: 0.2;
+    animation-delay: -2s;
+}
+
+.aurora-mesh-filter {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(5,7,15,0) 0%, rgba(5,7,15,0.8) 100%);
+    z-index: 1;
+}
+
+@keyframes auroraFloat {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    50% { transform: translate(5%, 10%) scale(1.1) rotate(10deg); }
+    100% { transform: translate(-5%, -5%) scale(0.9) rotate(-5deg); }
+}
+
+/* --------------------------------------------------------------------------
+   2. CYBER GRID OVERLAY (شبکه سایبری)
+   -------------------------------------------------------------------------- */
+.cyber-grid-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 200, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 200, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 0;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
+
+/* --------------------------------------------------------------------------
+   3. NEON BORDERS & GLOW (حاشیه‌های نئونی درخشان)
+   -------------------------------------------------------------------------- */
+.neon-border {
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.1), inset 0 0 10px rgba(0, 200, 255, 0.05);
+}
+
+.neon-border-animated {
+    border: 1px solid rgba(0, 200, 255, 0.4);
+    animation: neonBorderPulse 3s infinite alternate;
+}
+
+.aurora-border-glow {
+    position: relative;
+}
+.aurora-border-glow::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(45deg, var(--mcx-neon-blue, #00C8FF), var(--mcx-neon-purple, #6A00FF), var(--mcx-neon-blue, #00C8FF));
+    background-size: 200% 200%;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.aurora-border-glow:hover::before {
+    opacity: 1;
+    animation: gradientMove 3s linear infinite;
+}
+
+@keyframes neonBorderPulse {
+    0% { box-shadow: 0 0 10px rgba(0, 200, 255, 0.1); border-color: rgba(0, 200, 255, 0.2); }
+    100% { box-shadow: 0 0 25px rgba(0, 200, 255, 0.4), inset 0 0 15px rgba(0, 200, 255, 0.15); border-color: rgba(0, 200, 255, 0.8); }
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* --------------------------------------------------------------------------
+   4. HOLOGRAM SPHERE & ORBITAL RINGS (هولوگرام سه‌بعدی و حلقه‌های مداری)
+   -------------------------------------------------------------------------- */
+.hologram-sphere-wrapper {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.core-emblem-center {
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle, rgba(0, 200, 255, 0.2) 0%, rgba(106, 0, 255, 0.1) 100%);
+    border: 2px solid var(--mcx-neon-blue, #00C8FF);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.5), inset 0 0 20px rgba(0, 200, 255, 0.3);
+    z-index: 5;
+    animation: corePulse 2s infinite alternate ease-in-out;
+}
+
+.core-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 10px var(--mcx-neon-blue, #00C8FF);
+    letter-spacing: 2px;
+}
+
+.orbital-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ring-1 {
+    width: 140px; height: 140px;
+    border-top: 2px solid var(--mcx-neon-blue, #00C8FF);
+    border-bottom: 2px solid var(--mcx-neon-blue, #00C8FF);
+    box-shadow: 0 0 15px rgba(0, 200, 255, 0.2);
+    animation: rotateRing1 4s linear infinite;
+}
+
+.ring-2 {
+    width: 180px; height: 180px;
+    border-left: 2px solid var(--mcx-neon-purple, #6A00FF);
+    border-right: 2px solid var(--mcx-neon-purple, #6A00FF);
+    box-shadow: 0 0 20px rgba(106, 0, 255, 0.3);
+    animation: rotateRing2 6s linear infinite reverse;
+}
+
+.ring-3 {
+    width: 220px; height: 220px;
+    border: 1px dashed rgba(0, 255, 163, 0.4);
+    animation: rotateRing3 10s linear infinite;
+}
+
+@keyframes corePulse {
+    0% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 200, 255, 0.4); }
+    100% { transform: scale(1.05); box-shadow: 0 0 40px rgba(0, 200, 255, 0.8); }
+}
+
+@keyframes rotateRing1 {
+    0% { transform: translate(-50%, -50%) rotateX(70deg) rotateZ(0deg); }
+    100% { transform: translate(-50%, -50%) rotateX(70deg) rotateZ(360deg); }
+}
+
+@keyframes rotateRing2 {
+    0% { transform: translate(-50%, -50%) rotateY(70deg) rotateZ(0deg); }
+    100% { transform: translate(-50%, -50%) rotateY(70deg) rotateZ(360deg); }
+}
+
+@keyframes rotateRing3 {
+    0% { transform: translate(-50%, -50%) rotateX(45deg) rotateY(45deg) rotateZ(0deg); }
+    100% { transform: translate(-50%, -50%) rotateX(45deg) rotateY(45deg) rotateZ(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   5. FLOATING ELEMENTS (المان‌های شناور تزئینی)
+   -------------------------------------------------------------------------- */
+.floating-element {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(30px);
+    z-index: 0;
+    pointer-events: none;
+    animation: floatElement 8s infinite alternate ease-in-out;
+}
+
+.floating-1 {
+    width: 150px; height: 150px;
+    background: rgba(0, 200, 255, 0.15);
+    top: 20%; right: 10%;
+}
+
+.floating-2 {
+    width: 200px; height: 200px;
+    background: rgba(106, 0, 255, 0.15);
+    bottom: 10%; left: 5%;
+    animation-delay: -4s;
+}
+
+@keyframes floatElement {
+    0% { transform: translateY(0) translateX(0); }
+    100% { transform: translateY(-30px) translateX(20px); }
+                                        }
