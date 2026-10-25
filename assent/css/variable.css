@@ -1,0 +1,34 @@
+/* ==========================================================================
+   MCX G26 - Design Variables
+   ========================================================================== */
+
+:root {
+    /* Brand Colors */
+    --mcx-neon-cyan: #00C8FF;
+    --mcx-neon-purple: #6A00FF;
+    --mcx-deep-black: #05070f;
+    --mcx-dark-surface: #0d111a;
+    
+    /* Text Colors */
+    --mcx-text-main: #E2E8F0;
+    --mcx-text-muted: #94A3B8;
+    --mcx-text-cyan: #00C8FF;
+    --mcx-text-purple: #b478ff;
+
+    /* Glassmorphism (افکت شیشه‌ای) */
+    --mcx-glass-bg: rgba(13, 17, 26, 0.6);
+    --mcx-glass-border: rgba(0, 200, 255, 0.15);
+    --mcx-glass-blur: blur(20px);
+
+    /* Glow & Shadows (سایه و درخشش) */
+    --mcx-glow-cyan: 0 0 25px rgba(0, 200, 255, 0.4);
+    --mcx-glow-purple: 0 0 25px rgba(106, 0, 255, 0.4);
+    --mcx-glow-text: 0 0 15px rgba(0, 200, 255, 0.7);
+
+    /* Fonts */
+    --mcx-font-main: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+    
+    /* Layout */
+    --mcx-container-width: 1300px;
+    --mcx-header-height: 100px;
+}
