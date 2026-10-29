@@ -1,0 +1,25 @@
+here/* ==========================================================================
+   MCX G26 - GLOBAL ANIMATIONS
+   ========================================================================== */
+
+/* Marquee Ticker Animation */
+@keyframes scrollMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+}
+
+.marquee-track {
+    animation: scrollMarquee 25s linear infinite;
+}
+
+/* Blinking Cursor for Typing Effect */
+@keyframes blinkCursor {
+    50% { opacity: 0; }
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: var(--mcx-neon-cyan, #00C8FF);
+    animation: blinkCursor 1s step-end infinite;
+}
