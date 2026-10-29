@@ -1,0 +1,40 @@
+/* ==========================================================================
+   MCX G26 - RESPONSIVE DESIGN & MOBILE MENU FIX
+   ========================================================================== */
+
+@media (max-width: 1150px) {
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* منو اولش خارج از صفحه است */
+        width: 80%;
+        height: 100vh;
+        background: rgba(5, 7, 15, 0.95); /* پس‌زمینه تیره */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1000;
+        border-left: 1px solid rgba(0, 200, 255, 0.2);
+    }
+
+    /* وقتی جاوااسکریپت کلاس active رو اضافه کرد، منو میاد وسط */
+    .main-nav.active {
+        right: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+        display: block;
+        text-align: center;
+    }
+}
