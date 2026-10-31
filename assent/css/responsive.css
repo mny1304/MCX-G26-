@@ -38,3 +38,38 @@
         text-align: center;
     }
 }
+/* ==========================================================================
+   FIX FOR MOBILE TELEMETRY BAR (HEADER TOP)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .header-telemetry-bar {
+        padding: 4px 0 !important;
+        overflow: hidden;
+    }
+    
+    .telemetry-container {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 3px !important;
+    }
+
+    .telemetry-right, .telemetry-left {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        width: 100%;
+    }
+
+    /* کوچک کردن فونت‌ها تا تو موبایل جا بشن */
+    .telemetry-text, .telemetry-node, .telemetry-version, .telemetry-clock {
+        font-size: 0.65rem !important; 
+        line-height: 1.2 !important;
+    }
+
+    /* حذف خطوط جداکننده (|) در موبایل */
+    .telemetry-divider {
+        display: none !important; 
+    }
+}
