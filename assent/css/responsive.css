@@ -1,15 +1,16 @@
 /* ==========================================================================
-   MCX G26 - RESPONSIVE DESIGN & MOBILE MENU FIX
+   MCX G26 - FINAL MOBILE FIXES (HEADER & MENU)
    ========================================================================== */
 
 @media (max-width: 1150px) {
+    /* Mobile Menu Drawer */
     .main-nav {
         position: fixed;
         top: 0;
-        right: -100%; /* منو اولش خارج از صفحه است */
+        right: -100%; 
         width: 80%;
         height: 100vh;
-        background: rgba(5, 7, 15, 0.95); /* پس‌زمینه تیره */
+        background: rgba(5, 7, 15, 0.95);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         display: flex;
@@ -21,7 +22,6 @@
         border-left: 1px solid rgba(0, 200, 255, 0.2);
     }
 
-    /* وقتی جاوااسکریپت کلاس active رو اضافه کرد، منو میاد وسط */
     .main-nav.active {
         right: 0;
     }
@@ -38,38 +38,55 @@
         text-align: center;
     }
 }
-/* ==========================================================================
-   FIX FOR MOBILE TELEMETRY BAR (HEADER TOP)
-   ========================================================================== */
 
 @media (max-width: 768px) {
+    /* 1. Force Header to stick to the absolute top */
+    header.mcx-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        z-index: 9999 !important;
+        background: rgba(5, 7, 15, 0.95) !important; /* Solid background to hide particles behind it */
+        backdrop-filter: blur(20px) !important;
+    }
+
+    /* 2. Push the main content down so the header doesn't cover it */
+    body#mcx-body {
+        padding-top: 135px !important; /* Adjust this number if the header height changes */
+    }
+
+    /* 3. Fix the Telemetry Bar to be compact and horizontal */
     .header-telemetry-bar {
-        padding: 4px 0 !important;
+        padding: 5px 10px !important;
         overflow: hidden;
     }
     
     .telemetry-container {
-        flex-direction: column !important;
-        justify-content: center !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
         align-items: center !important;
-        gap: 3px !important;
+        flex-wrap: nowrap !important;
+        gap: 5px !important;
     }
 
-    .telemetry-right, .telemetry-left {
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 8px !important;
-        width: 100%;
-    }
-
-    /* کوچک کردن فونت‌ها تا تو موبایل جا بشن */
     .telemetry-text, .telemetry-node, .telemetry-version, .telemetry-clock {
-        font-size: 0.65rem !important; 
-        line-height: 1.2 !important;
+        font-size: 0.6rem !important; 
+        white-space: nowrap !important;
     }
 
-    /* حذف خطوط جداکننده (|) در موبایل */
-    .telemetry-divider {
+    /* Hide the version and dividers to save space on mobile */
+    .telemetry-divider, .telemetry-version {
         display: none !important; 
+    }
+    
+    /* Adjust main bar padding to reduce header height */
+    .header-main-bar {
+        padding: 10px 0 !important;
+    }
+    
+    .brand-titles {
+        display: none !important; /* Hide brand text on mobile to keep header thin, just show MCX logo */
     }
 }
