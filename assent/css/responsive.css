@@ -40,35 +40,44 @@
 }
 
 @media (max-width: 768px) {
-    /* 1. Force Header to stick to the absolute top */
-    header.mcx-header {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        margin: 0 !important;
-        z-index: 9999 !important;
-        background: rgba(5, 7, 15, 0.95) !important; /* Solid background to hide particles behind it */
-        backdrop-filter: blur(20px) !important;
+    /* 1. Header Layout Fixes */
+    .header-main-bar {
+        padding: 10px 0 !important;
     }
 
-    /* 2. Push the main content down so the header doesn't cover it */
-    body#mcx-body {
-        padding-top: 135px !important; /* Adjust this number if the header height changes */
+    .nav-container {
+        flex-wrap: nowrap !important;
+        gap: 5px !important;
     }
 
-    /* 3. Fix the Telemetry Bar to be compact and horizontal */
+    /* 2. Hide Bulky Buttons on Mobile to fix overflow */
+    #audio-ambient-toggle, 
+    #command-palette-trigger {
+        display: none !important; /* مخفی کردن دکمه‌های صوت و کیبورد در موبایل */
+    }
+
+    /* 3. Make the CTA Button smaller */
+    .btn-primary.neon-glow-btn {
+        padding: 8px 12px !important;
+        font-size: 0.75rem !important;
+        white-space: nowrap;
+    }
+
+    /* 4. Hide Brand Text, just keep Logo */
+    .brand-titles {
+        display: none !important; 
+    }
+
+    /* 5. Fix the Telemetry Bar (Make it single line and scrollable if needed) */
     .header-telemetry-bar {
-        padding: 5px 10px !important;
-        overflow: hidden;
+        padding: 5px 0 !important;
     }
     
     .telemetry-container {
         flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        flex-wrap: nowrap !important;
-        gap: 5px !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        overflow-x: auto !important; /* اسکرول افقی در صورت زیاد بودن متن */
     }
 
     .telemetry-text, .telemetry-node, .telemetry-version, .telemetry-clock {
@@ -76,17 +85,18 @@
         white-space: nowrap !important;
     }
 
-    /* Hide the version and dividers to save space on mobile */
-    .telemetry-divider, .telemetry-version {
+    .telemetry-divider {
         display: none !important; 
     }
-    
-    /* Adjust main bar padding to reduce header height */
-    .header-main-bar {
-        padding: 10px 0 !important;
+
+    /* 6. Fix the 'Curiosity Space' (Hero Section padding) */
+    .hero-section {
+        padding-top: 150px !important; /* این فضا رو نگه می‌داریم که کنجکاوی ایجاد کنه */
+        min-height: 80vh;
     }
     
-    .brand-titles {
-        display: none !important; /* Hide brand text on mobile to keep header thin, just show MCX logo */
+    /* 7. Remove the massive fixed padding from the body */
+    body#mcx-body {
+        padding-top: 0 !important; 
     }
 }
