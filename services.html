@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCX G26 | کارخانه خدمات دیجیتال</title>
+    <link rel="stylesheet" href="services.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">🟦 MCX G26 🟪</div>
+        <button class="cart-btn" onclick="alert('صفحه سبد خرید در فاز بعدی ساخته می‌شود!')">
+            🛒 سبد خرید <span class="cart-count" id="cart-count">0</span>
+        </button>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h3>🌿 شاخه‌های MCX</h3>
+            <ul id="category-list"></ul>
+        </aside>
+
+        <main class="main-content">
+            <input type="text" id="search-input" class="search-bar" placeholder="🔍 جستجوی خدمت... (مثلاً: طراحی لوگو)">
+            
+            <div id="content-area">
+                <div class="empty-state" id="empty-state">
+                    <h2>📦</h2>
+                    <p>فرمانده، یک شاخه را از منوی کناری انتخاب کن تا خدماتش را ببینی!</p>
+                </div>
+                
+                <h2 id="current-category-title" class="hidden" style="color: var(--neon-blue); margin-bottom: 20px;"></h2>
+                <div class="services-grid hidden" id="services-grid"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="services-data.js"></script>
+    <script src="services.js"></script>
+</body>
+</html>
